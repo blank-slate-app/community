@@ -55,10 +55,17 @@ isn't yours to share.
      "file": "community-tools/sticker.js",
      "name": "Sticker",
      "author": "My Name",
+     "credits": ["My Name"],
+     "basedOn": null,
      "description": "Drop emoji stickers on the canvas",
      "downloads": 0
    }
    ```
+
+   `author` is whoever made THIS tool. For a remix, `basedOn` names the
+   tool you forked and `credits` lists the full `manifest.authors` chain,
+   oldest first — e.g. `"author": "santibraby", "credits":
+   ["Forma Rosa Creative", "santibraby"], "basedOn": "artboards"`.
 
 3. Open the pull request.
 

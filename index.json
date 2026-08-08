@@ -1,4 +1,53 @@
 {
   "decks": [],
-  "tools": []
+  "tools": [
+    {
+      "file": "community-tools/artboards.santibraby.js",
+      "name": "PowerPoint Export",
+      "author": "santibraby",
+      "credits": [
+        "Forma Rosa Creative",
+        "santibraby"
+      ],
+      "basedOn": "artboards",
+      "description": "Export every artboard as a PowerPoint deck (.pptx) — one slide per page. Imports into Google Slides.",
+      "downloads": 0
+    },
+    {
+      "file": "community-tools/eyedropper.random9.js",
+      "name": "Eyedropper (Random 9)",
+      "author": "santibraby",
+      "credits": [
+        "Forma Rosa Creative",
+        "santibraby"
+      ],
+      "basedOn": "eyedropper",
+      "description": "9 individually-sampled random points shown on the image — click to place them as a 3×3 grid, X to reroll.",
+      "downloads": 0
+    },
+    {
+      "file": "community-tools/eyedropper.square.js",
+      "name": "Eyedropper (Square)",
+      "author": "santibraby",
+      "credits": [
+        "Forma Rosa Creative",
+        "santibraby"
+      ],
+      "basedOn": "eyedropper",
+      "description": "Sample any color on the canvas and drop it as a scalable square swatch.",
+      "downloads": 0
+    },
+    {
+      "file": "community-tools/images.grunge.js",
+      "name": "Grunge",
+      "author": "santibraby",
+      "credits": [
+        "Forma Rosa Creative",
+        "santibraby"
+      ],
+      "basedOn": "images",
+      "description": "Dirty grunge plates on images — screen on the left, multiply on the right.",
+      "downloads": 0
+    }
+  ]
 }

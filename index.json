@@ -10,7 +10,7 @@
         "santibraby"
       ],
       "basedOn": "artboards",
-      "description": "Export every artboard as a PowerPoint deck (.pptx) — one slide per page. Imports into Google Slides.",
+      "description": "Export artboards as an EDITABLE PowerPoint deck — text arrives as text boxes, images as image objects (crops intact). Imports into Google Slides.",
       "downloads": 0
     },
     {
@@ -38,6 +38,28 @@
       "downloads": 0
     },
     {
+      "file": "community-tools/gantt.js",
+      "name": "Gantt Chart",
+      "author": "santibraby",
+      "credits": [
+        "santibraby"
+      ],
+      "basedOn": null,
+      "description": "A cell grid with flowchart-style task bars: double-click a cell to type, drag bars between cells, stretch them across cells, +/− lines on hover, double-click a line to edit it (solid/dashed/delete).",
+      "downloads": 0
+    },
+    {
+      "file": "community-tools/guides.js",
+      "name": "Guides",
+      "author": "santibraby",
+      "credits": [
+        "santibraby"
+      ],
+      "basedOn": null,
+      "description": "Photoshop-style rulers and draggable guide lines. G toggles; guides never export.",
+      "downloads": 0
+    },
+    {
       "file": "community-tools/images.grunge.js",
       "name": "Grunge",
       "author": "santibraby",
@@ -47,6 +69,51 @@
       ],
       "basedOn": "images",
       "description": "Dirty grunge plates on images — screen on the left, multiply on the right.",
+      "downloads": 0
+    },
+    {
+      "file": "community-tools/images.shadow.js",
+      "name": "Drop Shadow",
+      "author": "santibraby",
+      "credits": [
+        "santibraby"
+      ],
+      "basedOn": "images",
+      "description": "Drop shadows on images — a blurred rectangle offset 15px behind the crop box, like a print taped to the desk.",
+      "downloads": 0
+    },
+    {
+      "file": "community-tools/line.js",
+      "name": "Line",
+      "author": "santibraby",
+      "credits": [
+        "santibraby"
+      ],
+      "basedOn": null,
+      "description": "Straight lines — drag to draw (Shift = 45° lock), three types (solid/dashed/dotted), the app swatch colors.",
+      "downloads": 0
+    },
+    {
+      "file": "community-tools/shapes.polygon.js",
+      "name": "Polygon",
+      "author": "santibraby",
+      "credits": [
+        "Forma Rosa Creative",
+        "santibraby"
+      ],
+      "basedOn": "shapes",
+      "description": "Pen-style polygons with multiply inks, perspective-mapped image textures (drag 4 corners to fit), and donut holes — the polygon is the crop shape.",
+      "downloads": 0
+    },
+    {
+      "file": "community-tools/timeline.js",
+      "name": "Timeline",
+      "author": "santibraby",
+      "credits": [
+        "santibraby"
+      ],
+      "basedOn": null,
+      "description": "A one-dimensional Gantt: a divided spine with labeled ticks that can become filled or open dots — same editing grammar as the Gantt chart.",
       "downloads": 0
     }
   ]

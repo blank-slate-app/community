@@ -26,7 +26,7 @@
 export const manifest = {
   id: 'artboards.santibraby',
   name: 'PowerPoint Export',
-  version: '2.4.0',
+  version: '2.4.1',
   authors: ['Forma Rosa Creative', 'santibraby'], // append-only ledger
   basedOn: 'artboards',
   description: 'Export artboards as an EDITABLE PowerPoint deck — text arrives as text boxes, images as image objects (crops intact). Imports into Google Slides.',
@@ -42,7 +42,7 @@ export function register(ctx) {
     '3:4':   { w: 1125, h: 1500 }, // verticals — letterbox into the deck
     '3:5':   { w: 900,  h: 1500 },
   };
-  const AB_CORNERS = ['tl', 'tr', 'bl', 'br'];
+  const AB_CORNERS = ['tl', 'tr', 'bl', 'br', 'c']; // 'c' = the CENTER field (2.3.0 artboards)
   // text tool's style table (canvas px @150dpi)
   const TEXT_STYLES = {
     label:       { size: 168, weight: 700, family: 'Inter',              italic: false, color: 'F0F0F0', lh: 1.05 },
@@ -52,6 +52,7 @@ export function register(ctx) {
   };
   // artboard corner-field styles (fields reuse the text look)
   const FIELD_STYLES = {
+    label:       { size: 168, weight: 700, family: 'Inter',          italic: false, color: 'F0F0F0', lh: 1.05 },
     title:       { size: 42, weight: 600, family: 'Georgia',        italic: false, color: 'F0F0F0', lh: 1.3 },
     subtitle:    { size: 24, weight: 400, family: 'Georgia',        italic: true,  color: 'CCCCCC', lh: 1.3 },
     description: { size: 14, weight: 400, family: 'JetBrains Mono', italic: false, color: '999999', lh: 1.3 },
@@ -604,6 +605,49 @@ export function register(ctx) {
     for (const corner of AB_CORNERS) {
       const f = ab.artboardFields && ab.artboardFields[corner];
       if (!f) continue;
+
+      // CENTER field → a middle-anchored, centre-aligned shape dead-center
+      if (corner === 'c') {
+        if (f.kind === 'logo' && f.src) {
+          const abEl = objectEl(ab.id);
+          const logoEl = abEl && abEl.querySelector('.ab-field-c img');
+          if (logoEl && logoEl.complete && logoEl.naturalWidth) {
+            const lh = 120;
+            const lw = lh * (logoEl.naturalWidth / logoEl.naturalHeight);
+            const m = imgElToMedia(logoEl, /\.png(\?|$)/i.test(logoEl.src));
+            const mediaIdx = store.add('logo:' + (f.src || logoEl.src), m.ext, m.bytes);
+            shapes.push({
+              kind: 'image', mediaIdx,
+              xPx: (ab.w - lw) / 2, yPx: (ab.h - lh) / 2,
+              wPx: lw, hPx: lh,
+            });
+          }
+          continue;
+        }
+        if (!f.text) continue;
+        const st = FIELD_STYLES[f.style] || FIELD_STYLES.label;
+        const lines = String(f.text).split('\n');
+        const boxH = Math.max(st.size * st.lh * lines.length + 8, 24);
+        const boxW = ab.w * 0.9;
+        shapes.push({
+          kind: 'text',
+          xPx: (ab.w - boxW) / 2, yPx: (ab.h - boxH) / 2,
+          wPx: boxW, hPx: boxH,
+          paras: lines.map(l => [{ t: l, b: false, i: false, u: false }]),
+          padX: 0, padY: 0,
+          anchor: 'ctr', align: 'ctr',
+          style: {
+            sizePx: st.size,
+            family: primaryFont(f.fontFamily, st.family),
+            bold: st.weight >= 600,
+            italic: st.italic,
+            color: hex6(f.textColor, st.color),
+            lh: st.lh,
+          },
+        });
+        continue;
+      }
+
       const isRight = corner === 'tr' || corner === 'br';
       const isBottom = corner === 'bl' || corner === 'br';
       if (f.kind === 'logo' && f.src) {

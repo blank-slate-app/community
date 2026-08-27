@@ -49,6 +49,17 @@
       "downloads": 0
     },
     {
+      "file": "community-tools/glyphs.js",
+      "name": "Glyphs",
+      "author": "santibraby",
+      "credits": [
+        "santibraby"
+      ],
+      "basedOn": null,
+      "description": "Stamp simple stroke glyphs — star, lightbulb, bag, truck, wrench, ruler and friends — scalable, recolorable, replaceable in place.",
+      "downloads": 0
+    },
+    {
       "file": "community-tools/guides.js",
       "name": "Guides",
       "author": "santibraby",
@@ -90,7 +101,19 @@
         "santibraby"
       ],
       "basedOn": null,
-      "description": "Straight lines — drag to draw (Shift = 45° lock), three types (solid/dashed/dotted), the app swatch colors.",
+      "description": "Straight lines — drag to draw (Shift = 45° lock), three types (solid/dashed/dotted), pixel thickness 1–20, the app swatch colors.",
+      "downloads": 0
+    },
+    {
+      "file": "community-tools/markup.sketch.js",
+      "name": "Sketch Note",
+      "author": "santibraby",
+      "credits": [
+        "Forma Rosa Creative",
+        "santibraby"
+      ],
+      "basedOn": "markup",
+      "description": "Hand-sketched arrows with handwritten notes — a wobbly pen stroke, an open drawn head, no bubble. Deterministic: exports exactly as drawn.",
       "downloads": 0
     },
     {
